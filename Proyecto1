@@ -1,0 +1,1115 @@
+Combate com1;
+Ganar g1;
+Instrucciones ins1;
+Inicio in1;
+Seleccion sel1;
+boolean In, Ins, Sel, Jug, Fin, seleccionar1, seleccionar2, ganar;
+int gan;
+//PELEADORES
+
+int p1, p2;
+Peleador pe1, pe2;
+boolean t1,t2;
+char c1, c2;
+
+void setup () {
+size(1500, 900);
+background (0);
+p1 = 0;
+p2= 0;
+t1 = true;
+t2 = false;
+c1 = 'A';
+c2 = 'B';
+com1 = new Combate();
+in1 = new Inicio();
+ins1 = new Instrucciones();
+sel1 = new Seleccion();
+seleccionar1 =true;
+seleccionar2 =false;
+ganar = false;
+
+g1 = new Ganar();
+
+pe1 = new Peleador (c2, c1);
+pe2 = new Peleador (c1, c2);
+
+//PELEADORES 
+ c1 = 'A';
+ c2 = 'B';
+    
+    
+In = true;
+Jug = false;
+Ins = false;
+Fin = false;
+Sel= false;
+
+}
+class Ganar {
+
+void dibujar(){
+background(#00A8FF);
+textSize(60);
+fill(255);
+text("HAS GANADO", 465, 150);
+text("Presiona X para continuar", 550, 767.5);
+}
+
+void DibujarG (int g) {
+    switch (g) { // Carros
+       case 1:// Volkswagen Beetle
+            noStroke();
+            fill(#F70213);
+            ellipseMode(CENTER);
+            ellipse(275, 150, 200, 200);
+            fill(#B2F4FF);
+            ellipseMode(CENTER);
+            ellipse(275, 150, 150, 150);
+            //
+            noStroke();
+            rectMode(CENTER);
+            fill(#F70213);
+            rect(170, 290, 100, 100, 100, 0, 0, 0);
+            //
+            noStroke();
+            fill(#F70213);
+            rect(380, 290, 100, 100, 0, 100, 0, 0);
+            //
+            fill(#BF1322);
+            ellipseMode(CENTER);
+            ellipse(275, 240, 220, 220);
+            //
+            fill(#FFE70A);
+            ellipseMode(CENTER);
+            ellipse(395, 300, 35, 35);
+            //
+            fill(#FFE70A);
+            ellipseMode(CENTER);
+            ellipse(155, 300, 35, 35);
+            //
+            //rectMode(CENTER);
+            fill(#050505);
+            rect(157.5, 365, 75, 50);
+            //
+            fill(#050505);
+            rect(392.5, 365, 75, 50);
+            //
+            noStroke();
+            fill(#DEDEDE);
+            rect(275, 340, 315, 25);
+        break; 
+        case 2: //NISSAN SENTRA
+            pushMatrix();
+            fill(#FFD900);
+            noStroke();
+            rectMode(CENTER);
+            rect(275, 150, 200, 100);
+            //
+            fill(#FFD900);
+            triangle(90, 200, 175, 200, 175, 100); 
+            //
+            fill(#FFD900);
+            triangle(375, 200, 460, 200, 375, 100); 
+            //
+            fill(#B2F4FF);
+            noStroke();
+            rect(275, 160, 200, 80);
+            //
+            fill(#B2F4FF);
+            triangle(110, 200, 175, 200, 175, 120);
+            //
+            fill(#B2F4FF);
+            triangle(375, 200, 440, 200, 375, 120); 
+            //PARTE INTERMEDIA
+            fill(#FFC400);
+            triangle(90, 200, 175, 200, 175, 300); 
+            //
+            triangle(375, 200, 460, 200, 375, 300); 
+            //
+            noStroke();
+            rect(275, 250, 200, 100);
+            //
+            fill(#FFD900);
+            triangle(70, 350, 175, 300, 90, 200);
+            //6
+            fill(#B2F4FF);
+            triangle(90, 325, 142, 300, 100, 240);
+            //
+            fill(#B2F4FF);
+            triangle(375, 200, 440, 200, 375, 120); 
+            //
+            fill(#FFD900);
+            triangle(375, 300, 480, 350, 460, 200); 
+            //
+            fill(#B2F4FF);
+            triangle(400, 297, 460, 325, 452, 235);
+            //
+            fill(#C4C4C4);
+            triangle(70, 350, 175, 300, 175, 350);
+            //
+            fill(#C4C4C4);
+            triangle(375, 300, 480, 350, 375, 350);
+            //
+            fill(#B2B2B2);
+            rect(275, 325, 200, 50);
+            //
+            //LLANTAS
+            fill(#050505);
+            rect(120, 370, 90, 40);
+            //
+            rect(430, 370, 90, 40);
+            popMatrix();
+         break;
+         case 3:// McLaren Senna
+            noStroke();
+            rectMode(CENTER);
+            //Aleron
+            fill(#050505);
+            rect(275, 100, 300, 25);
+            //PARTE SUPERIOR
+            fill(#0037D6); 
+            rect(275, 150, 200, 100);
+            //LATERAL DERECHO
+            fill(#0030B9);
+            rect(142, 175, 100, 50, 20, 0, 20, 0);
+            //LATERAL IZQUIERDO
+            fill(#0030B9);
+            rect(409, 175, 100, 50, 0, 20, 0, 20);
+            //
+            fill(#0037D6);
+            triangle(90, 200, 175, 200, 175, 100); 
+            //
+            fill(#0037D6);
+            triangle(375, 200, 460, 200, 375, 100); 
+            //
+            fill(#B2F4FF);
+            noStroke();
+            rectMode(CENTER);
+            rect(275, 160, 200, 80);
+            //
+            fill(#B2F4FF);
+            triangle(110, 200, 175, 200, 175, 120);
+            //
+            fill(#B2F4FF);
+            triangle(375, 200, 440, 200, 375, 120); 
+            //PARTE INTERMEDIA
+            //Capo derecho
+            fill(#0030B9);
+            triangle(90, 200, 175, 200, 175, 300); 
+            //capo Izquierdo
+            triangle(375, 200, 460, 200, 375, 300); 
+            //Capo central
+            rectMode(CENTER);
+            rect(275, 250, 200, 100);
+            //parte derecha
+            fill(#0037D6);
+            triangle(70, 350, 175, 300, 90, 200);
+            //Vidrio principal
+            fill(#B2F4FF);
+            triangle(275, 200, 440, 200, 375, 120); 
+            //Vidrio principal
+            fill(#0037D6);
+            triangle(375, 300, 480, 350, 460, 200); 
+            //Lateral derecho
+            fill(#0037D6);
+            triangle(70, 350, 175, 300, 175, 350);
+            //Luz derecha
+            fill(#E8E8E8);
+            triangle(90, 300, 142, 300, 100, 240);
+            fill(#FF9900);
+            rect(116, 315, 52, 30,0,0,10,10);
+            //lateral izquierdo
+            fill(#0037D6);
+            triangle(375, 300, 480, 350, 375, 350);
+            //Luz izquierda
+            fill(#E8E8E8);
+            triangle(400, 300, 460, 300, 452, 235);
+            fill(#FF9900);
+            rect(430, 315, 60, 30, 0, 0, 10, 10);
+            //
+            fill(#B2B2B2);
+            rectMode(CENTER);
+            rect(275, 325, 200, 50);
+            //
+            //LLANTAS
+            rectMode(CENTER);
+            fill(#050505);
+            rect(120, 370, 90, 40, 0, 0, 20, 20);
+            //
+            rect(430, 370, 90, 40, 0, 0, 20, 20);
+         break;
+         case 4://Ram Truck  
+            noStroke();
+            rectMode(CENTER);
+            //PARTE SUPERIOR
+            fill(#0037D6); 
+            rect(275, 150, 200, 100);
+            //
+            fill(#0037D6);
+            triangle(90, 200, 175, 200, 175, 100); 
+            //
+            fill(#0037D6);
+            triangle(375, 200, 460, 200, 375, 100); 
+            //
+            fill(#B2F4FF);
+            noStroke();
+            rectMode(CENTER);
+            rect(275, 160, 200, 80);
+            //Vidrio principal
+            fill(#B2F4FF);
+            triangle(275, 200, 440, 200, 375, 120); 
+            //Vidrio principal
+            fill(#0037D6);
+            //
+            fill(#B2F4FF);
+            triangle(110, 200, 175, 200, 175, 120);
+            //
+            fill(#B2F4FF);
+            triangle(375, 200, 440, 200, 375, 120); 
+            //PARTE INTERMEDIA
+            //Capo derecho
+            fill(#0030B9);
+            triangle(90, 200, 175, 200, 175, 300); 
+            //capo Izquierdo
+            triangle(375, 200, 460, 200, 375, 300); 
+            //Capo central
+            rectMode(CENTER);
+            rect(275, 250, 200, 100);
+            //parte derecha
+            fill(#0037D6);
+            triangle(90, 350, 175, 300, 90, 200);
+            //parte izquierda
+            triangle(375, 300, 460, 350, 460, 200); 
+            //Lateral derecho
+            fill(#0037D6);
+            triangle(90, 350, 175, 300, 175, 350);
+            //Luz derecha
+            fill(#E8E8E8);
+            rectMode(CENTER);
+            rect(118, 300, 56, 50);
+            fill(#FF9900);
+            rect(118, 315, 56, 30,0,0,10,10);
+            //lateral izquierdo
+            fill(#0037D6);
+            triangle(375, 300, 460, 350, 375, 350);
+            //Luz izquierda
+            fill(#E8E8E8);
+            rectMode(CENTER);
+            rect(430, 290, 60, 30);
+            fill(#FF9900);
+            rect(430, 315, 60, 30, 0, 0, 10, 10);
+            //PARACHOQUES  
+            fill(#B2B2B2);
+            rectMode(CENTER);
+            rect(275, 325, 200, 50);
+            fill(#A0A0A0);
+            rect(275, 370, 395, 50);
+            //
+            //LLANTAS
+            rectMode(CENTER);
+            fill(#050505);
+            rect(135, 430, 90, 70, 0, 0, 20, 20);
+            //
+            rect(415, 430, 90, 70, 0, 0, 20, 20);              
+          break;
+          case 5: // TRICIKMaster    
+            //PARTE CENTRAL
+            fill(#FF9E00);
+            noStroke();
+            rectMode(CENTER);
+            rect(275, 250, 150, 150);
+            fill(#CE7F00);
+            rect(237.5,212.5, 60, 60);
+            rect(312.5, 212.5, 60, 60);
+            rect(237.5, 272.5, 60, 30);
+            rect(312.5, 272.5, 60, 30);
+            //LLanta derecha
+            rectMode(CENTER);
+            fill(#030303);
+            rect(185, 352, 20, 30, 0, 0, 20, 20);
+            fill(#FFFEFC);
+            rect(185, 300, 30, 75, 20, 20, 0, 0);
+            //LLanta izquierda
+            rectMode(CENTER);
+            fill(#030303);
+            rect(365, 352, 20, 30, 0, 0, 20, 20);
+            fill(#FFFEFC);
+            rect(365, 300, 30, 75, 20, 20, 0, 0);
+
+
+
+}
+
+
+
+}
+
+}
+class Inicio {
+int selector;
+Inicio (){
+selector =1;
+}
+
+void Dibujar (){
+background(#00A8FF);
+textSize(150);
+fill(255);
+text("¡BOOMper", 340, 250);
+text("cars!", 770, 365);
+noStroke();
+rectMode(CENTER);
+//ROJO DERECHA
+fill(250, 5, 13);
+rect(100, 150, 200, 300);
+//AZUL DERECHA
+fill(5, 141, 250);
+rect(100, 450, 200, 300);
+//AMARILLO DERECHA
+fill(249, 250, 5);
+rect(100, 750, 200, 300);
+//ROJO IZQUIERDA
+fill(250, 5, 13);
+rect(1400, 150, 200, 300);
+//AZUL IZQUIERDA
+fill(5, 141, 250);
+rect(1400, 450, 200, 300);
+//AMARILLO IZQUIERDA
+fill(249, 250, 5);
+rect(1400, 750, 200, 300);
+//BOTON EMPEZAR
+fill(5, 141, 250);
+rectMode(CENTER);
+rect(750, 550, 300, 70, 20, 20, 20, 20);
+textSize(50);
+fill(255);
+text("Empezar", 650, 567.5);
+
+}
+
+}
+class Instrucciones{
+int selector;
+Instrucciones(){
+selector =1;
+}
+void dibujar(){
+background(#00A8FF);
+textSize(75);
+fill(255);
+text("INSTRUCCIONES", 465, 150);
+textSize(30);
+text("Bienvenidos a ¡BOOMper Cars!, para iniciar el juego se deben tener ", 245, 365);
+text("2 consideraciones, la tecla de ataque variara dependiendo el orden de ", 245, 405);
+text("los jugadores para el jugador 1 su tecla de ataque será A, mientras que", 245, 445);
+text("para el segudo será la tecla B, una vez aclarado esto, ¿Quisieras ver", 245, 485);
+text("como se destrozan los coches?", 245, 525);
+noStroke();
+rectMode(CENTER);
+//ROJO DERECHA
+fill(250, 5, 13);
+rect(100, 150, 200, 300);
+//AZUL DERECHA
+fill(5, 141, 250);
+rect(100, 450, 200, 300);
+//AMARILLO DERECHA
+fill(249, 250, 5);
+rect(100, 750, 200, 300);
+//ROJO IZQUIERDA
+fill(250, 5, 13);
+rect(1400, 150, 200, 300);
+//AZUL IZQUIERDA
+fill(5, 141, 250);
+rect(1400, 450, 200, 300);
+//AMARILLO IZQUIERDA
+fill(249, 250, 5);
+rect(1400, 750, 200, 300);
+//BOTON EMPEZAR
+textSize(30);
+fill(255);
+text("Presiona Z para continuar", 550, 767.5);
+}
+
+
+
+}
+class Seleccion{
+Peleador pe1, pe2, pe3, pe4, pe5;
+char control, control2;
+Seleccion(){
+pe1= new Peleador(control, control2);  
+pe2= new Peleador(control, control2);  
+pe3= new Peleador(control, control2); 
+pe4= new Peleador(control, control2); 
+pe5= new Peleador(control, control2); 
+}
+
+
+void aparecerr(){
+background(#00A8FF);
+//ROJO DERECHA
+noStroke();
+rectMode(CENTER);
+//ROJO DERECHA
+fill(250, 5, 13);
+rect(100, 150, 200, 300);
+//AZUL DERECHA
+fill(5, 141, 250);
+rect(100, 450, 200, 300);
+//AMARILLO DERECHA
+fill(249, 250, 5);
+rect(100, 750, 200, 300);
+//ROJO IZQUIERDA
+fill(250, 5, 13);
+rect(1400, 150, 200, 300);
+//AZUL IZQUIERDA
+fill(5, 141, 250);
+rect(1400, 450, 200, 300);
+//AMARILLO IZQUIERDA
+fill(249, 250, 5);
+rect(1400, 750, 200, 300);
+//
+textSize(25);
+fill(5, 141, 250);
+rect(400, 275, 300, 300);
+fill(255);
+text("1/6", 230, 150);
+fill(5, 141, 250);
+rect(750, 275, 300, 300);
+fill(255);
+text("2/7", 580, 150);
+fill(5, 141, 250);
+rect(1100, 275, 300, 300);
+fill(255);
+text("3/8", 930, 150);
+fill(5, 141, 250);
+rect(575, 625, 300, 300);
+fill(255);
+text("4/9", 400, 500);
+fill(5, 141, 250);
+rect(925, 625, 300, 300);
+fill(255);
+text("5/P", 750, 500);
+// INSTRUCCIONES
+textSize(20);
+fill(255);
+text("Seleccione el número según corresponda al personaje (Lado izquierdo P1/Lado derecho P2):", 360, 75);
+//Boton empezar
+fill(5, 141, 250);
+rectMode(CORNER);
+rect(687,835, 150, 50, 20, 20, 20,20);
+textSize(30);
+fill(255);
+text("Empezar", 700, 870);
+
+pushMatrix();
+scale (0.5);
+translate (500,300);
+pe1.Aparecer(1);
+translate (740, 0);
+pe2.Aparecer(2);
+translate (680, 0);
+pe3.Aparecer(3);
+translate (-1050, 620);
+pe4.Aparecer(4);
+translate (700, 100);
+pe5.Aparecer(5);
+popMatrix();
+}
+
+}
+class Combate{
+
+  
+  Combate (){
+  
+   
+  }
+  
+void Arena () {
+pushMatrix();
+ background(#00A8FF);
+      rectMode(CENTER);
+      noStroke();
+      fill(#048CD3);
+      rect(750, 62.5, 1500, 125);
+      //Bloque de menú del primer personaje
+      noStroke();
+      fill(#00A8FF);
+      rect(150, 31.25, 300, 62.5);
+      //Bloque de menú del segundo personaje
+      noStroke();
+      fill(#00A8FF);
+      rect(1350, 31.25, 300, 62.5);
+      //Fondo de menú de ataques
+      fill(249, 250, 5);
+      ellipseMode(CENTER);
+      ellipse(150, 800, 150, 150);
+      ellipse( 1350, 800, 150, 150);
+      //Linea divisoria de los menus
+      fill(#00A8FF);
+      rect(750, 0, 400, 900);
+      //Poscicion de la carta del primer Personaje
+      fill(5, 141, 250);
+      rect(350, 450, 550, 500);
+      //Poscicion de la carta del segundo Personaje
+      fill(5, 141, 250);
+      rect(1150, 450, 550, 500);
+      //Player1
+      textSize(30);
+      fill(255);
+      text("Jugador1", 50, 37.5);
+      text("Jugador2", 1310, 37.5);
+popMatrix();
+
+
+}
+
+
+
+}
+class Peleador {
+int seleccion;
+int vida;
+int ataque;
+int embate;
+boolean muerte;
+boolean  turno;
+boolean respuesta;
+char control;
+char cambio;
+
+  Peleador ( char control_, char cambio_) {
+  control = control_;
+  turno = true;
+  cambio = cambio_;
+  muerte = false;
+  }
+  
+  
+  void Definir (int selc) {
+    
+      switch (selc){     // STATS
+    case 1:// Volkswagen Beetle
+       vida =200; 
+       ataque = 10 ;
+    break;
+    case 2://NISSAN SENTRA
+       vida = 100;
+       ataque = 20;
+    break;
+    case 3: // // McLaren Senna
+       vida = 75;
+       ataque = 35; 
+    break;
+    case 4://Ram Truck
+       vida = 150;
+       ataque = 25;
+    break;
+    case 5:// TRICIKMaster
+         vida = 200;
+         ataque = 30; 
+  }
+  }
+  void Aparecer (int selc){
+  
+      switch (selc) { // Carros
+       case 1:// Volkswagen Beetle
+            noStroke();
+            fill(#F70213);
+            ellipseMode(CENTER);
+            ellipse(275, 150, 200, 200);
+            fill(#B2F4FF);
+            ellipseMode(CENTER);
+            ellipse(275, 150, 150, 150);
+            //
+            noStroke();
+            rectMode(CENTER);
+            fill(#F70213);
+            rect(170, 290, 100, 100, 100, 0, 0, 0);
+            //
+            noStroke();
+            fill(#F70213);
+            rect(380, 290, 100, 100, 0, 100, 0, 0);
+            //
+            fill(#BF1322);
+            ellipseMode(CENTER);
+            ellipse(275, 240, 220, 220);
+            //
+            fill(#FFE70A);
+            ellipseMode(CENTER);
+            ellipse(395, 300, 35, 35);
+            //
+            fill(#FFE70A);
+            ellipseMode(CENTER);
+            ellipse(155, 300, 35, 35);
+            //
+            //rectMode(CENTER);
+            fill(#050505);
+            rect(157.5, 365, 75, 50);
+            //
+            fill(#050505);
+            rect(392.5, 365, 75, 50);
+            //
+            noStroke();
+            fill(#DEDEDE);
+            rect(275, 340, 315, 25);
+        break; 
+        case 2: //NISSAN SENTRA
+            pushMatrix();
+            fill(#FFD900);
+            noStroke();
+            rectMode(CENTER);
+            rect(275, 150, 200, 100);
+            //
+            fill(#FFD900);
+            triangle(90, 200, 175, 200, 175, 100); 
+            //
+            fill(#FFD900);
+            triangle(375, 200, 460, 200, 375, 100); 
+            //
+            fill(#B2F4FF);
+            noStroke();
+            rect(275, 160, 200, 80);
+            //
+            fill(#B2F4FF);
+            triangle(110, 200, 175, 200, 175, 120);
+            //
+            fill(#B2F4FF);
+            triangle(375, 200, 440, 200, 375, 120); 
+            //PARTE INTERMEDIA
+            fill(#FFC400);
+            triangle(90, 200, 175, 200, 175, 300); 
+            //
+            triangle(375, 200, 460, 200, 375, 300); 
+            //
+            noStroke();
+            rect(275, 250, 200, 100);
+            //
+            fill(#FFD900);
+            triangle(70, 350, 175, 300, 90, 200);
+            //6
+            fill(#B2F4FF);
+            triangle(90, 325, 142, 300, 100, 240);
+            //
+            fill(#B2F4FF);
+            triangle(375, 200, 440, 200, 375, 120); 
+            //
+            fill(#FFD900);
+            triangle(375, 300, 480, 350, 460, 200); 
+            //
+            fill(#B2F4FF);
+            triangle(400, 297, 460, 325, 452, 235);
+            //
+            fill(#C4C4C4);
+            triangle(70, 350, 175, 300, 175, 350);
+            //
+            fill(#C4C4C4);
+            triangle(375, 300, 480, 350, 375, 350);
+            //
+            fill(#B2B2B2);
+            rect(275, 325, 200, 50);
+            //
+            //LLANTAS
+            fill(#050505);
+            rect(120, 370, 90, 40);
+            //
+            rect(430, 370, 90, 40);
+            popMatrix();
+         break;
+         case 3:// McLaren Senna
+            noStroke();
+            rectMode(CENTER);
+            //Aleron
+            fill(#050505);
+            rect(275, 100, 300, 25);
+            //PARTE SUPERIOR
+            fill(#0037D6); 
+            rect(275, 150, 200, 100);
+            //LATERAL DERECHO
+            fill(#0030B9);
+            rect(142, 175, 100, 50, 20, 0, 20, 0);
+            //LATERAL IZQUIERDO
+            fill(#0030B9);
+            rect(409, 175, 100, 50, 0, 20, 0, 20);
+            //
+            fill(#0037D6);
+            triangle(90, 200, 175, 200, 175, 100); 
+            //
+            fill(#0037D6);
+            triangle(375, 200, 460, 200, 375, 100); 
+            //
+            fill(#B2F4FF);
+            noStroke();
+            rectMode(CENTER);
+            rect(275, 160, 200, 80);
+            //
+            fill(#B2F4FF);
+            triangle(110, 200, 175, 200, 175, 120);
+            //
+            fill(#B2F4FF);
+            triangle(375, 200, 440, 200, 375, 120); 
+            //PARTE INTERMEDIA
+            //Capo derecho
+            fill(#0030B9);
+            triangle(90, 200, 175, 200, 175, 300); 
+            //capo Izquierdo
+            triangle(375, 200, 460, 200, 375, 300); 
+            //Capo central
+            rectMode(CENTER);
+            rect(275, 250, 200, 100);
+            //parte derecha
+            fill(#0037D6);
+            triangle(70, 350, 175, 300, 90, 200);
+            //Vidrio principal
+            fill(#B2F4FF);
+            triangle(275, 200, 440, 200, 375, 120); 
+            //Vidrio principal
+            fill(#0037D6);
+            triangle(375, 300, 480, 350, 460, 200); 
+            //Lateral derecho
+            fill(#0037D6);
+            triangle(70, 350, 175, 300, 175, 350);
+            //Luz derecha
+            fill(#E8E8E8);
+            triangle(90, 300, 142, 300, 100, 240);
+            fill(#FF9900);
+            rect(116, 315, 52, 30,0,0,10,10);
+            //lateral izquierdo
+            fill(#0037D6);
+            triangle(375, 300, 480, 350, 375, 350);
+            //Luz izquierda
+            fill(#E8E8E8);
+            triangle(400, 300, 460, 300, 452, 235);
+            fill(#FF9900);
+            rect(430, 315, 60, 30, 0, 0, 10, 10);
+            //
+            fill(#B2B2B2);
+            rectMode(CENTER);
+            rect(275, 325, 200, 50);
+            //
+            //LLANTAS
+            rectMode(CENTER);
+            fill(#050505);
+            rect(120, 370, 90, 40, 0, 0, 20, 20);
+            //
+            rect(430, 370, 90, 40, 0, 0, 20, 20);
+         break;
+         case 4://Ram Truck  
+            noStroke();
+            rectMode(CENTER);
+            //PARTE SUPERIOR
+            fill(#0037D6); 
+            rect(275, 150, 200, 100);
+            //
+            fill(#0037D6);
+            triangle(90, 200, 175, 200, 175, 100); 
+            //
+            fill(#0037D6);
+            triangle(375, 200, 460, 200, 375, 100); 
+            //
+            fill(#B2F4FF);
+            noStroke();
+            rectMode(CENTER);
+            rect(275, 160, 200, 80);
+            //Vidrio principal
+            fill(#B2F4FF);
+            triangle(275, 200, 440, 200, 375, 120); 
+            //Vidrio principal
+            fill(#0037D6);
+            //
+            fill(#B2F4FF);
+            triangle(110, 200, 175, 200, 175, 120);
+            //
+            fill(#B2F4FF);
+            triangle(375, 200, 440, 200, 375, 120); 
+            //PARTE INTERMEDIA
+            //Capo derecho
+            fill(#0030B9);
+            triangle(90, 200, 175, 200, 175, 300); 
+            //capo Izquierdo
+            triangle(375, 200, 460, 200, 375, 300); 
+            //Capo central
+            rectMode(CENTER);
+            rect(275, 250, 200, 100);
+            //parte derecha
+            fill(#0037D6);
+            triangle(90, 350, 175, 300, 90, 200);
+            //parte izquierda
+            triangle(375, 300, 460, 350, 460, 200); 
+            //Lateral derecho
+            fill(#0037D6);
+            triangle(90, 350, 175, 300, 175, 350);
+            //Luz derecha
+            fill(#E8E8E8);
+            rectMode(CENTER);
+            rect(118, 300, 56, 50);
+            fill(#FF9900);
+            rect(118, 315, 56, 30,0,0,10,10);
+            //lateral izquierdo
+            fill(#0037D6);
+            triangle(375, 300, 460, 350, 375, 350);
+            //Luz izquierda
+            fill(#E8E8E8);
+            rectMode(CENTER);
+            rect(430, 290, 60, 30);
+            fill(#FF9900);
+            rect(430, 315, 60, 30, 0, 0, 10, 10);
+            //PARACHOQUES  
+            fill(#B2B2B2);
+            rectMode(CENTER);
+            rect(275, 325, 200, 50);
+            fill(#A0A0A0);
+            rect(275, 370, 395, 50);
+            //
+            //LLANTAS
+            rectMode(CENTER);
+            fill(#050505);
+            rect(135, 430, 90, 70, 0, 0, 20, 20);
+            //
+            rect(415, 430, 90, 70, 0, 0, 20, 20);              
+          break;
+          case 5: // TRICIKMaster    
+            //PARTE CENTRAL
+            fill(#FF9E00);
+            noStroke();
+            rectMode(CENTER);
+            rect(275, 250, 150, 150);
+            fill(#CE7F00);
+            rect(237.5,212.5, 60, 60);
+            rect(312.5, 212.5, 60, 60);
+            rect(237.5, 272.5, 60, 30);
+            rect(312.5, 272.5, 60, 30);
+            //LLanta derecha
+            rectMode(CENTER);
+            fill(#030303);
+            rect(185, 352, 20, 30, 0, 0, 20, 20);
+            fill(#FFFEFC);
+            rect(185, 300, 30, 75, 20, 20, 0, 0);
+            //LLanta izquierda
+            rectMode(CENTER);
+            fill(#030303);
+            rect(365, 352, 20, 30, 0, 0, 20, 20);
+            fill(#FFFEFC);
+            rect(365, 300, 30, 75, 20, 20, 0, 0);
+      }
+    
+    
+  
+  }
+  
+  
+  void Barra (int a, int b){
+  fill(249, 250, 5);
+  rect(a, b, vida, 25);
+  print (vida);
+  }
+  
+ void CambioBarra (int ataque) {
+  if (keyPressed && turno == true) {
+    if (key == control) {
+      vida = vida - ataque;
+      turno = false;
+    }
+  }
+  
+  if (keyPressed && turno == false) {
+    if (key == cambio){
+    turno = true;
+    }
+  }
+  
+  }
+  
+  boolean Muerte () {
+    if (vida <=0){
+    muerte = true;
+    }
+  return muerte;
+  }
+  
+}
+void draw () {
+
+if (In ==true) {
+in1.Dibujar();
+if (mousePressed && mouseX > 645 && mouseX < 750) {
+    Ins = true;
+    In = false;
+}
+}
+
+
+if(Ins == true){
+ins1.dibujar();
+if (keyPressed) {
+  if (key == 'Z' || key == 'z'){
+    Ins = false;
+    Sel = true;
+}
+}
+}
+
+
+if (Sel == true){
+sel1.aparecerr();
+
+//SELECCIONAR 1ER PERSONAJE 
+if (seleccionar1 == true){
+if (keyPressed) {
+if (key == '1'){
+p1 = 1;
+seleccionar2 = true;
+seleccionar1 = false; 
+}
+}
+
+if (keyPressed) {
+if (key == '2'){
+p1 = 2;
+seleccionar2 = true;
+seleccionar1 = false; 
+}
+}
+
+if (keyPressed) {
+if (key == '3'){
+p1 = 3;
+seleccionar2 = true;
+seleccionar1 = false; 
+}
+}
+
+if (keyPressed) {
+if (key == '4'){
+p1 = 4;
+seleccionar2 = true;
+seleccionar1 = false; 
+}
+}
+
+if (keyPressed) {
+if (key == '5'){
+p1 = 5;
+seleccionar2 = true;
+seleccionar1 = false;
+}
+}
+ 
+}
+
+
+  //SELECCIONAR 2DO PERSONAJE 
+  
+  
+if (seleccionar2 == true){
+
+if (keyPressed && seleccionar1 == false) {
+if (key == '6'){
+p2= 1;
+seleccionar2 = false; 
+}
+}
+
+if (keyPressed && seleccionar1 == false) {
+if (key == '7'){
+p2= 2;
+seleccionar2 = false;
+}
+}
+
+if (keyPressed && seleccionar1 == false) {
+if (key == '8'){
+p2 = 3;
+seleccionar2= false;
+}
+}
+
+if (keyPressed && seleccionar1 == false) {
+if (key == '9'){
+p2 = 4;
+seleccionar2 = false;
+}
+}
+
+if (keyPressed && seleccionar1 == false) {
+if (key == 'P'){
+p2 = 5;
+seleccionar2 = false; 
+}
+}
+}
+  
+  
+  
+  
+ if (p1 >0 && p2 >0 && seleccionar1 == false && seleccionar2 ==false){
+ Jug = true;
+ pe1.Definir (p1);
+ pe2.Definir (p2);
+ Sel = false;
+ }
+}
+
+
+
+
+if (Jug == true){
+com1.Arena();
+
+//PELEADOR 1
+  pushMatrix();
+  translate (50,200);
+  pe1.Aparecer(p1); 
+  popMatrix();
+  pe1.Barra(0,100);
+  pe1.CambioBarra(pe2.ataque);
+println (p2);
+
+
+//PELEADOR 2
+  pushMatrix();
+  translate (900,200);
+  pe2.Aparecer(p2); 
+  popMatrix();
+  pushMatrix();
+  pe2.Barra(1450,100);
+  popMatrix();
+  pe2.CambioBarra(pe1.ataque);
+  
+  
+  if (pe2.Muerte() || pe1.Muerte()) {
+    
+      if (pe2.vida > pe1.vida) {
+        gan = p2;
+           ganar = true;
+           Jug = false;
+      }
+      
+      if (pe1.vida > pe2.vida) {
+        gan = p1;
+           ganar = true;
+         Jug = false;
+      }
+      
+
+  }
+}
+if (ganar == true) {
+g1.dibujar();
+g1.DibujarG (gan);
+if (keyPressed) {
+if (key == 'X'){
+pe1.muerte = false;
+pe2.muerte = false;
+seleccionar1= true;
+p1 = 0;
+p2 = 0;
+ganar = false;
+In = true;
+}
+} 
+}
+print (p1,p2);
+}
